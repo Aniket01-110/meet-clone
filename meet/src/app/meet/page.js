@@ -1,5 +1,6 @@
+'use client'
 import { useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import io from 'socket.io-client';
 
 let socket;
@@ -11,6 +12,8 @@ export default function Meet() {
   const localVideoRef = useRef(null);
   const remoteVideoRef = useRef(null);
   const [peerConnection, setPeerConnection] = useState(null);
+
+  
 
   useEffect(() => {
     const startConnection = async () => {
