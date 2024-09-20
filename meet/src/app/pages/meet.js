@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import io from 'socket.io-client';
-import styles from '../styles/Meet.module.css';
 
 let socket;
 
@@ -70,11 +69,11 @@ export default function Meet() {
   }, [mode, meetingID]);
 
   return (
-    <div className={styles.meetingContainer}>
-      <h1>Meeting</h1>
-      <div className={styles.videoContainer}>
-        <video ref={localVideoRef} autoPlay playsInline muted className={styles.video} />
-        <video ref={remoteVideoRef} autoPlay playsInline className={styles.video} />
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold text-gray-900">Meeting Room</h1>
+      <div className="flex mt-8 space-x-4">
+        <video ref={localVideoRef} autoPlay playsInline muted className="w-64 h-48 bg-black rounded-lg" />
+        <video ref={remoteVideoRef} autoPlay playsInline className="w-64 h-48 bg-black rounded-lg" />
       </div>
     </div>
   );
